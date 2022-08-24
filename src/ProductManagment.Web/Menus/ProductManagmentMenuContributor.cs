@@ -33,6 +33,19 @@ public class ProductManagmentMenuContributor : IMenuContributor
                 order: 0
             )
         );
+        context.Menu.AddItem(
+            new ApplicationMenuItem(
+                "ProductManagement",
+                l["Menu:ProductManagement"],
+                icon: "fas fa-shopping-cart"
+            ).AddItem(
+                new ApplicationMenuItem(
+                    "ProductManagement.Products",
+                    l["Menu:Products"],
+                    url: "/Products"
+                )
+            )
+        );
 
         if (MultiTenancyConsts.IsEnabled)
         {
@@ -46,4 +59,5 @@ public class ProductManagmentMenuContributor : IMenuContributor
         administration.SetSubItemOrder(IdentityMenuNames.GroupName, 2);
         administration.SetSubItemOrder(SettingManagementMenuNames.GroupName, 3);
     }
+    
 }
